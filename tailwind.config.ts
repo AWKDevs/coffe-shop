@@ -8,11 +8,21 @@ export default {
   ],
   theme: {
     extend: {
+      fontSize: {
+        'custom-15': [
+          '15px',
+          {
+            lineHeight: '26px'
+          }
+        ]
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-motion'),
+  ], 
 } satisfies Config;
