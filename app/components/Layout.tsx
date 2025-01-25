@@ -1,6 +1,5 @@
 // app/components/Layout.tsx
 import Header from './Header';
-import Navbar from './Navbar';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
