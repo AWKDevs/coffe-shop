@@ -42,8 +42,7 @@ const ResponsiveNavClient = ({ menuDesktop, menuMobile, logo }: ResponsiveNavCli
         {/* Menú Móvil */}
         <div
           className={`md:hidden absolute left-0 w-full bg-[rgb(201,186,175)] z-50 shadow-lg
-            transform origin-top transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
-            ${isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}
+            ${isOpen ? 'motion-preset-slide-left scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}
           style={{
             maxHeight: isOpen ? '1000px' : '0px',
             transformOrigin: 'top',

@@ -1,4 +1,5 @@
 // app/components/Layout.tsx
+import Footer from './footer';
 import Header from './Header';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -9,6 +10,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <h2>Bienvenido a Coffee Shop</h2>
                 {children}
             </main>
+            <Footer />
         </>
     );
 };
