@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { SiCoffeescript } from "react-icons/si";
 import { BiSolidCart } from "react-icons/bi";
-import { HeaderButtonBronwBorder, HeaderIconButton } from "./HeaderButton";
+import { HeaderButtonBronwBorder, HeaderIconButton } from "./HeaderButtons";
 
 const Header = () => {
   return (
@@ -12,7 +12,7 @@ const Header = () => {
           <SiCoffeescript />
         </Link>
         <nav className="flex items-center justify-center space-x-6">
-            <HeaderIconButton href="/cart" icon={<BiSolidCart className="text-2xl text-[rgb(249,217,120)]"/>}/>
+            <HeaderIconButton href="/cart" icon={<BiSolidCart />} color="249,217,120"/>
             <HeaderButtonBronwBorder href="/menu" insideText="MENÚ"/>
             <HeaderButtonBronwBorder href="/recommendations" insideText="RECOMENDACIONES"/>
             <HeaderButtonBronwBorder href="/promotions" insideText="PROMOCIONES"/>
