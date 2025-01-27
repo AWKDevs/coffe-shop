@@ -16,6 +16,9 @@ export default {
           }
         ]
       },
+      screens: {
+        pre_md: '1080px',
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
