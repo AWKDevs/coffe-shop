@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import { FiShoppingCart } from 'react-icons/fi';
+import { PiShoppingCartSimpleFill } from 'react-icons/pi';
 import { MdDiscount, MdOutlineNewReleases } from 'react-icons/md';
 import Image from 'next/image';
 
@@ -13,85 +13,97 @@ interface FeatureCardProps {
     originalPrice?: string;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ name, image, price, isNew, isPromo, originalPrice }) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({
+    name,
+    image,
+    price,
+    isNew = false,
+    isPromo = false,
+    originalPrice,
+}) => {
+    // Estilos comunes
+    const containerStyle: React.CSSProperties = {
+        borderRadius: '10px',
+        padding: '16px',
+        textAlign: 'center',
+        fontFamily: 'Judson, serif',
+        color: '#7C593C',
+        position: 'relative',
+        overflow: 'hidden',
+        width: '100%',
+        maxWidth: '300px',
+        margin: '0',
+    };
+
+    const imageContainerStyle: React.CSSProperties = {
+        position: 'relative',
+        width: '100%',
+        height: '200px',
+        borderRadius: '10px',
+        overflow: 'hidden',
+    };
+
+    const iconStyle: React.CSSProperties = {
+        position: 'absolute',
+        top: '10px',
+        left: '10px',
+        fontSize: '24px',
+        color: '#FFE4AA',
+        zIndex: 10,
+    };
+
+    const buttonStyle: React.CSSProperties = {
+        backgroundColor: '#433409',
+        color: '#fff',
+        fontFamily: 'Judson, serif',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '8px',
+        border: 'none',
+        marginTop: '10px',
+        width: '40%',
+    };
+
     return (
-        <div
-            style={{
-                borderRadius: '10px',
-                padding: '16px',
-                textAlign: 'center',
-                fontFamily: 'Judson, serif',
-                color: '#7C593C',
-                position: 'relative',
-                overflow: 'hidden',
-            }}
-        >
-            <div
-                style={{
-                    position: 'relative',
-                    width: '100%',
-                    paddingBottom: '75%', // Relación de aspecto 4:3
-                    borderRadius: '10px',
-                    overflow: 'hidden',
-                }}
-            >
-                {isPromo && (
-                    <MdDiscount
-                        style={{
-                            position: 'absolute',
-                            bottom: '10px',
-                            left: '10px',
-                            fontSize: '50px',
-                            color: '#FFE4AA',
-                            zIndex: 10,
-                        }}
-                    />
-                )}
-                {isNew && (
-                    <MdOutlineNewReleases
-                        style={{
-                            position: 'absolute',
-                            top: '10px',
-                            left: '10px',
-                            fontSize: '50px',
-                            color: '#FFE4AA',
-                            zIndex: 10,
-                        }}
-                    />
-                )}
-                <Image src={image} alt={name} width={600} height={400}
-                style={{
-                    objectFit: 'cover',
-                    borderRadius: '15px',
-                }}
-                 />
+        <div style={containerStyle}>
+            {/* Imagen con íconos */}
+            <div style={imageContainerStyle}>
+                {isPromo && <MdDiscount style={iconStyle} />}
+                {isNew && <MdOutlineNewReleases style={iconStyle} />}
+                <Image
+                    src={image}
+                    alt={name}
+                    width={280}
+                    height={200}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        borderRadius: '10px',
+                    }}
+                />
             </div>
-            <h3>{name}</h3>
+
+            {/* Información del producto */}
             {isPromo && originalPrice && (
                 <div style={{ marginBottom: '10px' }}>
-                    <span style={{ textDecoration: 'line-through', color: '#a0a0a0', marginRight: '8px' }}>
-                        {originalPrice} MXN
+                    <span
+                        style={{
+                            textDecoration: 'line-through',
+                            color: '#a0a0a0',
+                            marginRight: '8px',
+                            fontSize: '0.9rem',
+                        }}
+                    >
+                        {originalPrice}
                     </span>
                 </div>
             )}
-            <Button
-                type="primary"
-                size="large"
-                style={{
-                    backgroundColor: '#433409',
-                    color: '#fff',
-                    fontFamily: 'Judson, serif',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    border: 'none',
-                    width: '30%',
-                    justifyContent: 'center',
-                    marginTop: '10px',
-                    borderRadius: '20px',
-                }}
-            >
-                <FiShoppingCart size={20} style={{ color: '#FFE4AA' }} />
+
+            {/* Botón */}
+            <Button type="primary" size="large" style={buttonStyle}>
+                <PiShoppingCartSimpleFill size={20} style={{ color: '#FFE4AA' }} />
                 {price}
             </Button>
         </div>

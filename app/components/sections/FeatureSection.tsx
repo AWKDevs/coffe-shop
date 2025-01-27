@@ -5,17 +5,71 @@ import { products, promotions, newProducts } from '../../constants/productData';
 
 const FeaturesSection: React.FC = () => {
     return (
-        <div style={{ margin: '0 auto', maxWidth: '1200px', padding: '40px 20px' }}>
-            <section>
-                <h2>Especialidad del mes</h2>
+        <div
+            style={{
+                margin: '0 auto',
+                maxWidth: '1200px',
+                padding: '40px 20px',
+            }}
+        >
+            {/* Especialidad del mes */}
+            <section
+                style={{
+                    marginBottom: '60px',
+                }}
+            >
+                <h2
+                    style={{
+                        fontSize: '2rem',
+                        fontWeight: 'bold',
+                        marginBottom: '20px',
+                        fontFamily: 'Judson, serif',
+                        color: '#7C593C',
+                    }}
+                >
+                    Especialidad del mes
+                </h2>
                 <ProductHighlight product={products[0]} />
             </section>
-            <section>
-                <h2>El más vendido</h2>
+
+            {/* El más vendido */}
+            <section
+                style={{
+                    marginBottom: '60px',
+                }}
+            >
+                <h2
+                    style={{
+                        fontSize: '2rem',
+                        fontWeight: 'bold',
+                        marginBottom: '20px',
+                        fontFamily: 'Judson, serif',
+                        color: '#7C593C',
+                        textAlign: 'right', // Alineado a la derecha
+                    }}
+                >
+                    El más vendido
+                </h2>
                 <ProductHighlight product={products[1]} isReverse />
             </section>
-            <section>
-                <h2>Promociones</h2>
+
+            {/* Promociones */}
+            <section
+                style={{
+                    marginBottom: '60px',
+                }}
+            >
+                <h2
+                    style={{
+                        fontSize: '2rem',
+                        fontWeight: 'bold',
+                        marginBottom: '20px',
+                        fontFamily: 'Judson, serif',
+                        color: '#7C593C',
+                    }}
+                >
+                    Promociones
+                </h2>
                 <FeatureList
                     items={promotions.map((promo) => ({
                         id: promo.id,
@@ -27,8 +81,25 @@ const FeaturesSection: React.FC = () => {
                     }))}
                 />
             </section>
-            <section>
-                <h2>Los Nuevos</h2>
+
+            {/* Los Nuevos */}
+            <section
+                style={{
+                    marginBottom: '60px',
+                     // Margen izquierdo para alinear con el título
+                }}
+            >
+                <h2
+                    style={{
+                        fontSize: '2rem',
+                        fontWeight: 'bold',
+                        marginBottom: '20px',
+                        fontFamily: 'Judson, serif',
+                        color: '#7C593C',
+                    }}
+                >
+                    Los Nuevos
+                </h2>
                 <FeatureList
                     items={newProducts.map((newProduct) => ({
                         ...newProduct,
