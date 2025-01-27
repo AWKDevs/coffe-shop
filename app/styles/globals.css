@@ -1,9 +1,26 @@
 /* app/styles/globals.css */
+
+/* Importar la fuente Judson desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Judson:wght@400;700&display=swap');
+
+/* Estilos base de Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Personalización */
 body {
-    @apply bg-gray-50 text-gray-900;
+    @apply bg-gray-50; /* Fondo gris claro */
+    font-family: 'Judson', serif; /* Aplica la fuente Judson al texto */
+    color: #7C593C; /* Color principal para el texto */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-bold; /* Los encabezados tendrán negrita */
+    color: #7C593C; /* Color del texto en los encabezados */
+}
+
+button {
+    @apply font-bold; /* Negrita para botones */
+    font-family: 'Judson', serif; /* Fuente Judson para botones */
 }

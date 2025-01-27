@@ -1,4 +1,12 @@
 // app/page.tsx
-export default function Home() {
-    return <h1>Bienvenido a Coffee Shop</h1>;
+import FeaturesSection from './components/sections/FeatureSection';
+
+export default function LandingPage() {
+    return (
+        <div>
+            {/* Aquí va el Hero */}
+            <FeaturesSection />
+            {/* Aquí va la sección Sobre Nosotros y el Footer */}
+        </div>
+    );
 }
