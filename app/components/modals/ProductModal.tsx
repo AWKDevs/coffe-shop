@@ -43,6 +43,8 @@ const ProductModal: React.FC<ProductModalProps> = ({ isOpen, product, onClose })
                 width={400}
                 height={300}
                 style={{
+                    width: "100%",
+                    height: "100%",
                     borderRadius: '10px',
                     objectFit: 'cover',
                     marginBottom: '20px',

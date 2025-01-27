@@ -44,6 +44,8 @@ const ProductHighlight: React.FC<ProductHighlightProps> = ({ product, isReverse,
                     width={600}
                     height={400}
                     style={{
+                        width: "100%",
+                        height: "100%",
                         objectFit: 'cover',
                         borderRadius: '15px',
                     }}

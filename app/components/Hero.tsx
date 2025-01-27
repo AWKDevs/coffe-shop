@@ -6,8 +6,14 @@ const Hero = () => {
             <Image
                 src={'/images/Hero/img1Hero.png'}
                 alt={'Una taza de cafe deliciosa'}
-                layout="fill"
-                objectFit="cover"
+                width={1441}
+                height={688}
+                priority
+                style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: 'cover',
+                }}
                 className="shadow-lg"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-20">

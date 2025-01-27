@@ -86,6 +86,8 @@ const AboutUs: React.FC = () => {
                     width={1200}
                     height={500}
                     style={{
+                        width: "100%",
+                        height: "100%",
                         borderRadius: '15px',
                         objectFit: 'cover',
                     }}

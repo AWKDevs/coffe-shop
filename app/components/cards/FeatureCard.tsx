@@ -37,7 +37,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         width: '100%',
         maxWidth: '300px',
         margin: '0 auto',
-        cursor: 'pointer', // Indicar que es clicable
+        cursor: 'pointer',
     };
 
     const imageContainerStyle: React.CSSProperties = {
@@ -83,7 +83,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
                     height={200}
                     style={{
                         width: '100%',
-                        height: '100%',
+                        height: 'auto', // Mantener la proporción de aspecto
                         objectFit: 'cover',
                         borderRadius: '10px',
                     }}
