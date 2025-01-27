@@ -21,14 +21,14 @@ const ResponsiveNavClient = ({ menuDesktop, menuMobile, logo }: ResponsiveNavCli
           {logo}
 
           {/* Menú Desktop */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden pre_md:flex items-center space-x-4">
             {menuDesktop}
           </div>
 
           {/* Botón Hamburguesa */}
           <button
             onClick={toggleMenu}
-            className="md:hidden p-2 rounded-md text-[rgb(249,217,120)] hover:bg-[rgb(180,135,100)] focus:outline-none transition-colors duration-200"
+            className="pre_md:hidden p-2 rounded-md text-[rgb(249,217,120)] hover:bg-[rgb(180,135,100)] focus:outline-none transition-colors duration-200"
             aria-label="Toggle menu"
           >
             {isOpen ? (
@@ -41,7 +41,7 @@ const ResponsiveNavClient = ({ menuDesktop, menuMobile, logo }: ResponsiveNavCli
 
         {/* Menú Móvil */}
         <div
-          className={`md:hidden absolute left-0 w-full bg-[rgb(201,186,175)] z-50 shadow-lg
+          className={`pre_md:hidden absolute left-0 w-full bg-[rgb(201,186,175)] z-50 shadow-lg
             ${isOpen ? 'motion-preset-slide-left scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}
           style={{
             maxHeight: isOpen ? '1000px' : '0px',
