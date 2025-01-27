@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Hero = () => {
     return(
-        <div className="relative w-[1441px] h-[688px] mx-auto overflow-hidden flex items-center justify-center">
+        <div className="relative mt-[-1px] w-[1441px] h-[688px] mx-auto overflow-hidden flex items-center justify-center">
             <Image
                 src={'/images/Hero/img1Hero.png'}
                 alt={'Una taza de cafe deliciosa'}
