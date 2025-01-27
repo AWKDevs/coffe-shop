@@ -35,7 +35,12 @@ const ProductHighlight: React.FC<ProductHighlightProps> = ({ product, isReverse 
                     overflow: 'hidden',
                 }}
             >
-                <Image src={product.image} alt={product.name} layout="fill" objectFit="cover" />
+                <Image src={product.image} alt={product.name} width={600} height={400}
+                style={{
+                    objectFit: 'cover',
+                    borderRadius: '15px',
+                }}
+                />
                 <Button
                     type="primary"
                     size="large"

@@ -59,7 +59,12 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ name, image, price, isNew, is
                         }}
                     />
                 )}
-                <Image src={image} alt={name} layout="fill" objectFit="cover" />
+                <Image src={image} alt={name} width={600} height={400}
+                style={{
+                    objectFit: 'cover',
+                    borderRadius: '15px',
+                }}
+                 />
             </div>
             <h3>{name}</h3>
             {isPromo && originalPrice && (
