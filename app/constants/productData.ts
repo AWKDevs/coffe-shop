@@ -25,6 +25,8 @@ export const promotions = [
         id: 1,
         name: 'Promoción 1',
         image: '/images/products/promo1.png',
+        details: "Detalles de la promoción 1",
+        description: "Descripción detallada de la promoción 1.",
         originalPrice: '$50',
         discountedPrice: '$35',
     },
@@ -32,6 +34,8 @@ export const promotions = [
         id: 2,
         name: 'Promoción 2',
         image: '/images/products/promo2.png',
+        details: "Detalles de la promoción 2",
+        description: "Descripción detallada de la promoción 2.",
         originalPrice: '$30',
         discountedPrice: '$20',
     },
@@ -39,13 +43,37 @@ export const promotions = [
         id: 3,
         name: 'Promoción 3',
         image: '/images/products/promo3.png',
+        details: "Detalles de la promoción 3",
+        description: "Descripción detallada de la promoción 3.",
         originalPrice: '$70',
         discountedPrice: '$55',
     },
 ];
 
 export const newProducts = [
-    { id: 1, name: 'Latte Especial', image: '/images/products/nuevo1.png', price: '$55' },
-    { id: 2, name: 'Cappuccino Clásico', image: '/images/products/nuevo2.png', price: '$50' },
-    { id: 3, name: 'Frappe Caramelo', image: '/images/products/nuevo3.png', price: '$65' },
+    { 
+        id: 1, 
+        name: 'Latte Especial', 
+        image: '/images/products/nuevo1.png', 
+        details: '✨ Gramaje: 300 ml - Porción Individual',
+        description:
+            'Una taza de tradición y calidez, nuestro chocolate oaxaqueño es preparado con cacao artesanal, especias y un toque de amor que honra la esencia de Oaxaca. Mezclado con leche caliente, crea una bebida cremosa y aromática que reconforta el alma en cada sorbo. 🎁 Perfecto para disfrutar momentos acogedores. El sabor auténtico que conecta con tus raíces. ❤️',
+        price: '$55' 
+    },
+    { 
+        id: 2, 
+        name: 'Cappuccino Clásico', 
+        image: '/images/products/nuevo2.png',
+        details: '✨ Gramaje: 300 ml - Porción Individual',
+        description:
+            'Una taza de tradición y calidez, nuestro chocolate oaxaqueño es preparado con cacao artesanal, especias y un toque de amor que honra la esencia de Oaxaca. Mezclado con leche caliente, crea una bebida cremosa y aromática que reconforta el alma en cada sorbo. 🎁 Perfecto para disfrutar momentos acogedores. El sabor auténtico que conecta con tus raíces. ❤️',
+        price: '$50' },
+    { 
+        id: 3, 
+        name: 'Frappe Caramelo', 
+        image: '/images/products/nuevo3.png',
+        details: '✨ Gramaje: 300 ml - Porción Individual',
+        description:
+            'Una taza de tradición y calidez, nuestro chocolate oaxaqueño es preparado con cacao artesanal, especias y un toque de amor que honra la esencia de Oaxaca. Mezclado con leche caliente, crea una bebida cremosa y aromática que reconforta el alma en cada sorbo. 🎁 Perfecto para disfrutar momentos acogedores. El sabor auténtico que conecta con tus raíces. ❤️',
+        price: '$65' },
 ];

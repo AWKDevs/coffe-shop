@@ -11,6 +11,9 @@ interface FeatureCardProps {
     isNew?: boolean;
     isPromo?: boolean;
     originalPrice?: string;
+    details: string;
+    description: string;
+    onClick?: () => void; // Nueva prop para manejar clics
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
@@ -20,6 +23,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     isNew = false,
     isPromo = false,
     originalPrice,
+    onClick = () => {},
 }) => {
     // Estilos comunes
     const containerStyle: React.CSSProperties = {
@@ -32,7 +36,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         overflow: 'hidden',
         width: '100%',
         maxWidth: '300px',
-        margin: '0',
+        margin: '0 auto',
+        cursor: 'pointer', // Indicar que es clicable
     };
 
     const imageContainerStyle: React.CSSProperties = {
@@ -66,7 +71,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     };
 
     return (
-        <div style={containerStyle}>
+        <div style={containerStyle} onClick={onClick}>
             {/* Imagen con íconos */}
             <div style={imageContainerStyle}>
                 {isPromo && <MdDiscount style={iconStyle} />}
@@ -102,7 +107,12 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
             )}
 
             {/* Botón */}
-            <Button type="primary" size="large" style={buttonStyle}>
+            <Button type="primary" size="large" style={buttonStyle}
+            onClick={(event) => {
+                event.stopPropagation(); // Detener la propagación del evento
+                console.log('Compra realizada');
+            }}
+            >
                 <PiShoppingCartSimpleFill size={20} style={{ color: '#FFE4AA' }} />
                 {price}
             </Button>

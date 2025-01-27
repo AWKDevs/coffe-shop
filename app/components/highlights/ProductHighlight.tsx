@@ -12,9 +12,10 @@ interface ProductHighlightProps {
         description: string;
     };
     isReverse?: boolean;
+    onClick?: () => void; // Nueva prop para manejar clics
 }
 
-const ProductHighlight: React.FC<ProductHighlightProps> = ({ product, isReverse }) => {
+const ProductHighlight: React.FC<ProductHighlightProps> = ({ product, isReverse, onClick }) => {
     return (
         <div
             style={{
@@ -23,7 +24,9 @@ const ProductHighlight: React.FC<ProductHighlightProps> = ({ product, isReverse 
                 alignItems: 'center',
                 gap: '20px',
                 marginBottom: '60px',
+                cursor: 'pointer', // Indicar que es clicable
             }}
+            onClick={onClick} // Llamada al evento al hacer clic
         >
             <div
                 style={{
@@ -35,11 +38,15 @@ const ProductHighlight: React.FC<ProductHighlightProps> = ({ product, isReverse 
                     overflow: 'hidden',
                 }}
             >
-                <Image src={product.image} alt={product.name} width={600} height={400}
-                style={{
-                    objectFit: 'cover',
-                    borderRadius: '15px',
-                }}
+                <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={600}
+                    height={400}
+                    style={{
+                        objectFit: 'cover',
+                        borderRadius: '15px',
+                    }}
                 />
                 <Button
                     type="primary"

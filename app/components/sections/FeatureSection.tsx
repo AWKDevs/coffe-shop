@@ -1,9 +1,28 @@
-import React from 'react';
+"use client";
+
+
+import React, { useState } from 'react';
 import FeatureList from '../lists/FeatureList';
 import ProductHighlight from '../highlights/ProductHighlight';
 import { products, promotions, newProducts } from '../../constants/productData';
+import ProductModal from '../modals/ProductModal';
 
 const FeaturesSection: React.FC = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false); // Control del modal
+    const [selectedProduct, setSelectedProduct] = useState(null); // Producto seleccionado
+
+    // Función para abrir el modal con el producto seleccionado
+    const openModal = (product: any) => {
+        setSelectedProduct(product);
+        setIsModalOpen(true);
+    };
+
+    // Función para cerrar el modal
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setSelectedProduct(null);
+    };
+
     return (
         <div
             style={{
@@ -29,7 +48,7 @@ const FeaturesSection: React.FC = () => {
                 >
                     Especialidad del mes
                 </h2>
-                <ProductHighlight product={products[0]} />
+                <ProductHighlight product={products[0]} onClick={() => openModal(products[0])} />
             </section>
 
             {/* El más vendido */}
@@ -50,7 +69,7 @@ const FeaturesSection: React.FC = () => {
                 >
                     El más vendido
                 </h2>
-                <ProductHighlight product={products[1]} isReverse />
+                <ProductHighlight product={products[1]} isReverse onClick={() => openModal(products[1])} />
             </section>
 
             {/* Promociones */}
@@ -70,6 +89,7 @@ const FeaturesSection: React.FC = () => {
                 >
                     Promociones
                 </h2>
+                <h3>Sabor y calidad al mejor precio. Aprovecha nuestras ofertas especiales y disfruta más por menos. ¡Consiente tu antojo sin preocuparte por el bolsillo!</h3>
                 <FeatureList
                     items={promotions.map((promo) => ({
                         id: promo.id,
@@ -78,6 +98,9 @@ const FeaturesSection: React.FC = () => {
                         price: promo.discountedPrice, // Asignar discountedPrice como price
                         isPromo: true,
                         originalPrice: promo.originalPrice,
+                        details: promo.details || 'Detalles no disponibles.', // Agrega un valor predeterminado
+                        description: promo.description || 'Descripción no disponible.', // Agrega un valor predeterminado
+                        onClick: () => openModal(promo), // Abrir modal al hacer clic
                     }))}
                 />
             </section>
@@ -86,7 +109,6 @@ const FeaturesSection: React.FC = () => {
             <section
                 style={{
                     marginBottom: '60px',
-                     // Margen izquierdo para alinear con el título
                 }}
             >
                 <h2
@@ -100,13 +122,24 @@ const FeaturesSection: React.FC = () => {
                 >
                     Los Nuevos
                 </h2>
+                <h3>Descubre nuestras más recientes creaciones diseñadas para sorprender tu paladar. Innovación, sabor y calidad en cada producto que se suma a nuestra colección. ¡No te quedes sin probarlos!</h3>
                 <FeatureList
                     items={newProducts.map((newProduct) => ({
                         ...newProduct,
                         isNew: true,
+                        onClick: () => openModal(newProduct), // Abrir modal al hacer clic
                     }))}
                 />
             </section>
+
+            {/* Modal para mostrar producto seleccionado */}
+            {selectedProduct && (
+                <ProductModal
+                    isOpen={isModalOpen}
+                    product={selectedProduct}
+                    onClose={closeModal}
+                />
+            )}
         </div>
     );
 };
