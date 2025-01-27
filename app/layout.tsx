@@ -1,6 +1,8 @@
 // app/layout.tsx
 import './styles/globals.css';
-import Navbar from './components/Navbar';
+import Navbar from './components/NavBar/ResponsiveNav';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 export default function RootLayout({
     children,
@@ -10,8 +12,9 @@ export default function RootLayout({
     return (
         <html lang="es">
             <body>
-                <Navbar /> {/* Incluye el Navbar aquí */}
+                <Header />
                 {children}
+                <Footer />
             </body>
         </html>
     );
