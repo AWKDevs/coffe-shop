@@ -11,9 +11,7 @@ interface FeatureCardProps {
     isNew?: boolean;
     isPromo?: boolean;
     originalPrice?: string;
-    details: string;
-    description: string;
-    onClick?: () => void; // Nueva prop para manejar clics
+    onClick?: () => void;
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
@@ -23,67 +21,65 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     isNew = false,
     isPromo = false,
     originalPrice,
-    onClick = () => {},
+    onClick,
 }) => {
-    // Estilos comunes
-    const containerStyle: React.CSSProperties = {
-        borderRadius: '10px',
-        padding: '16px',
-        textAlign: 'center',
-        fontFamily: 'Judson, serif',
-        color: '#7C593C',
-        position: 'relative',
-        overflow: 'hidden',
-        width: '100%',
-        maxWidth: '300px',
-        margin: '0 auto',
-        cursor: 'pointer',
-    };
-
-    const imageContainerStyle: React.CSSProperties = {
-        position: 'relative',
-        width: '100%',
-        height: '200px',
-        borderRadius: '10px',
-        overflow: 'hidden',
-    };
-
-    const iconStyle: React.CSSProperties = {
-        position: 'absolute',
-        top: '10px',
-        left: '10px',
-        fontSize: '24px',
-        color: '#FFE4AA',
-        zIndex: 10,
-    };
-
-    const buttonStyle: React.CSSProperties = {
-        backgroundColor: '#433409',
-        color: '#fff',
-        fontFamily: 'Judson, serif',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '8px',
-        border: 'none',
-        marginTop: '10px',
-        width: '40%',
-    };
-
     return (
-        <div style={containerStyle} onClick={onClick}>
-            {/* Imagen con íconos */}
-            <div style={imageContainerStyle}>
-                {isPromo && <MdDiscount style={iconStyle} />}
-                {isNew && <MdOutlineNewReleases style={iconStyle} />}
+        <div
+            style={{
+                borderRadius: '10px',
+                padding: '16px',
+                textAlign: 'center',
+                fontFamily: 'Judson, serif',
+                color: '#7C593C',
+                position: 'relative',
+                overflow: 'hidden',
+                width: '100%',
+                maxWidth: '300px',
+                margin: '0 auto',
+                cursor: 'pointer',
+            }}
+            onClick={onClick}
+        >
+            {/* Contenedor para mantener la relación de aspecto */}
+            <div
+                style={{
+                    position: 'relative',
+                    width: '100%',
+                    paddingBottom: '56.25%', // Relación de aspecto 16:9
+                    borderRadius: '10px',
+                    overflow: 'hidden',
+                }}
+            >
+                {isPromo && (
+                    <MdDiscount
+                        style={{
+                            position: 'absolute',
+                            top: '10px',
+                            left: '10px',
+                            fontSize: '24px',
+                            color: '#FFE4AA',
+                            zIndex: 10,
+                        }}
+                    />
+                )}
+                {isNew && (
+                    <MdOutlineNewReleases
+                        style={{
+                            position: 'absolute',
+                            top: '10px',
+                            left: '10px',
+                            fontSize: '24px',
+                            color: '#FFE4AA',
+                            zIndex: 10,
+                        }}
+                    />
+                )}
                 <Image
                     src={image}
                     alt={name}
-                    width={280}
-                    height={200}
+                    fill
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     style={{
-                        width: '100%',
-                        height: 'auto', // Mantener la proporción de aspecto
                         objectFit: 'cover',
                         borderRadius: '10px',
                     }}
@@ -107,11 +103,25 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
             )}
 
             {/* Botón */}
-            <Button type="primary" size="large" style={buttonStyle}
-            onClick={(event) => {
-                event.stopPropagation(); // Detener la propagación del evento
-                console.log('Compra realizada');
-            }}
+            <Button
+                type="primary"
+                size="large"
+                onClick={(event) => {
+                    event.stopPropagation();
+                    console.log('Compra realizada');
+                }}
+                style={{
+                    backgroundColor: '#433409',
+                    color: '#fff',
+                    fontFamily: 'Judson, serif',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    border: 'none',
+                    marginTop: '10px',
+                    width: '40%',
+                }}
             >
                 <PiShoppingCartSimpleFill size={20} style={{ color: '#FFE4AA' }} />
                 {price}

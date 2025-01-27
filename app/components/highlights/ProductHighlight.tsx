@@ -12,7 +12,7 @@ interface ProductHighlightProps {
         description: string;
     };
     isReverse?: boolean;
-    onClick?: () => void; // Nueva prop para manejar clics
+    onClick?: () => void;
 }
 
 const ProductHighlight: React.FC<ProductHighlightProps> = ({ product, isReverse, onClick }) => {
@@ -24,9 +24,9 @@ const ProductHighlight: React.FC<ProductHighlightProps> = ({ product, isReverse,
                 alignItems: 'center',
                 gap: '20px',
                 marginBottom: '60px',
-                cursor: 'pointer', // Indicar que es clicable
+                cursor: 'pointer',
             }}
-            onClick={onClick} // Llamada al evento al hacer clic
+            onClick={onClick}
         >
             <div
                 style={{

@@ -6,8 +6,8 @@ const Hero = () => {
             <Image
                 src={'/images/Hero/img1Hero.png'}
                 alt={'Una taza de cafe deliciosa'}
-                width={1441}
-                height={688}
+                fill
+                sizes="100vw"
                 priority
                 style={{
                     width: "100%",

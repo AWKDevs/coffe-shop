@@ -10,9 +10,7 @@ interface FeatureListProps {
         isPromo?: boolean;
         isNew?: boolean;
         originalPrice?: string;
-        details: string;
-        description: string;
-        onClick?: () => void; // Nueva propiedad para manejar el clic
+        onClick?: () => void;
     }>;
 }
 
@@ -22,28 +20,20 @@ const FeatureList: React.FC<FeatureListProps> = ({ items }) => {
             style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                gap: '5px',
+                gap: '16px',
             }}
         >
             {items.map((item) => (
-                <div
+                <FeatureCard
                     key={item.id}
-                    onClick={item.onClick} // Manejar el clic desde aquí
-                    style={{
-                        cursor: 'pointer', // Cambiar el cursor a puntero para indicar interactividad
-                    }}
-                >
-                    <FeatureCard
-                        name={item.name}
-                        image={item.image}
-                        price={item.price}
-                        isPromo={item.isPromo}
-                        isNew={item.isNew}
-                        originalPrice={item.originalPrice}
-                        details={item.details}
-                        description={item.description}
-                    />
-                </div>
+                    name={item.name}
+                    image={item.image}
+                    price={item.price}
+                    isPromo={item.isPromo}
+                    isNew={item.isNew}
+                    originalPrice={item.originalPrice}
+                    onClick={item.onClick}
+                />
             ))}
         </div>
     );

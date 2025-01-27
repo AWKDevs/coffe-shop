@@ -8,16 +8,13 @@ import { products, promotions, newProducts } from '../../constants/productData';
 import ProductModal from '../modals/ProductModal';
 
 const FeaturesSection: React.FC = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false); // Control del modal
-    const [selectedProduct, setSelectedProduct] = useState(null); // Producto seleccionado
-
-    // Función para abrir el modal con el producto seleccionado
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState(null);
     const openModal = (product: any) => {
         setSelectedProduct(product);
         setIsModalOpen(true);
     };
 
-    // Función para cerrar el modal
     const closeModal = () => {
         setIsModalOpen(false);
         setSelectedProduct(null);
@@ -64,7 +61,7 @@ const FeaturesSection: React.FC = () => {
                         marginBottom: '20px',
                         fontFamily: 'Judson, serif',
                         color: '#7C593C',
-                        textAlign: 'right', // Alineado a la derecha
+                        textAlign: 'right',
                     }}
                 >
                     El más vendido
@@ -95,12 +92,12 @@ const FeaturesSection: React.FC = () => {
                         id: promo.id,
                         name: promo.name,
                         image: promo.image,
-                        price: promo.discountedPrice, // Asignar discountedPrice como price
+                        price: promo.discountedPrice,
                         isPromo: true,
                         originalPrice: promo.originalPrice,
-                        details: promo.details || 'Detalles no disponibles.', // Agrega un valor predeterminado
-                        description: promo.description || 'Descripción no disponible.', // Agrega un valor predeterminado
-                        onClick: () => openModal(promo), // Abrir modal al hacer clic
+                        details: promo.details || 'Detalles no disponibles.',
+                        description: promo.description || 'Descripción no disponible.',
+                        onClick: () => openModal(promo),
                     }))}
                 />
             </section>
@@ -127,7 +124,7 @@ const FeaturesSection: React.FC = () => {
                     items={newProducts.map((newProduct) => ({
                         ...newProduct,
                         isNew: true,
-                        onClick: () => openModal(newProduct), // Abrir modal al hacer clic
+                        onClick: () => openModal(newProduct),
                     }))}
                 />
             </section>

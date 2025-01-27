@@ -9,6 +9,7 @@ interface ProductModalProps {
         name: string;
         image: string;
         price: string;
+        discountedPrice: string;
         details: string;
         description: string;
     } | null;
@@ -16,7 +17,7 @@ interface ProductModalProps {
 }
 
 const ProductModal: React.FC<ProductModalProps> = ({ isOpen, product, onClose }) => {
-    if (!product) return null; // No mostrar nada si no hay producto seleccionado
+    if (!product) return null;
 
     return (
         <Modal
@@ -72,7 +73,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ isOpen, product, onClose })
                 }}
             >
                 <PiShoppingCartSimpleFill size={20} style={{ color: '#FFE4AA' }} />
-                {product.price}
+                {product.discountedPrice ||product.price}
             </Button>
         </Modal>
     );
