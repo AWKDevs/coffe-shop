@@ -1,6 +1,5 @@
 "use client";
 
-
 import React, { useState } from 'react';
 import FeatureList from '../lists/FeatureList';
 import ProductHighlight from '../highlights/ProductHighlight';
@@ -26,12 +25,14 @@ const FeaturesSection: React.FC = () => {
                 margin: '0 auto',
                 maxWidth: '1200px',
                 padding: '40px 20px',
+                width: '100%',
             }}
         >
             {/* Especialidad del mes */}
             <section
                 style={{
                     marginBottom: '60px',
+                    width: '100%',
                 }}
             >
                 <h2
@@ -45,13 +46,20 @@ const FeaturesSection: React.FC = () => {
                 >
                     Especialidad del mes
                 </h2>
-                <ProductHighlight product={products[0]} onClick={() => openModal(products[0])} />
+                <ProductHighlight 
+                    product={products[0]} 
+                    onClick={() => openModal(products[0])} 
+                />
             </section>
 
             {/* El más vendido */}
             <section
                 style={{
                     marginBottom: '60px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-end',
+                    width: '100%',
                 }}
             >
                 <h2
@@ -61,18 +69,23 @@ const FeaturesSection: React.FC = () => {
                         marginBottom: '20px',
                         fontFamily: 'Judson, serif',
                         color: '#7C593C',
-                        textAlign: 'right',
+                        width: '100%',
                     }}
                 >
                     El más vendido
                 </h2>
-                <ProductHighlight product={products[1]} isReverse onClick={() => openModal(products[1])} />
+                <ProductHighlight 
+                    product={products[1]} 
+                    isReverse 
+                    onClick={() => openModal(products[1])} 
+                />
             </section>
 
             {/* Promociones */}
             <section
                 style={{
                     marginBottom: '60px',
+                    width: '100%',
                 }}
             >
                 <h2
@@ -86,7 +99,10 @@ const FeaturesSection: React.FC = () => {
                 >
                     Promociones
                 </h2>
-                <h3>Sabor y calidad al mejor precio. Aprovecha nuestras ofertas especiales y disfruta más por menos. ¡Consiente tu antojo sin preocuparte por el bolsillo!</h3>
+                <h3 style={{ marginBottom: '30px', fontSize: '1.1rem' }}>
+                    Sabor y calidad al mejor precio. Aprovecha nuestras ofertas especiales y disfruta más por menos. 
+                    ¡Consiente tu antojo sin preocuparte por el bolsillo!
+                </h3>
                 <FeatureList
                     items={promotions.map((promo) => ({
                         id: promo.id,
@@ -106,6 +122,7 @@ const FeaturesSection: React.FC = () => {
             <section
                 style={{
                     marginBottom: '60px',
+                    width: '100%',
                 }}
             >
                 <h2
@@ -119,7 +136,11 @@ const FeaturesSection: React.FC = () => {
                 >
                     Los Nuevos
                 </h2>
-                <h3>Descubre nuestras más recientes creaciones diseñadas para sorprender tu paladar. Innovación, sabor y calidad en cada producto que se suma a nuestra colección. ¡No te quedes sin probarlos!</h3>
+                <h3 style={{ marginBottom: '30px', fontSize: '1.1rem' }}>
+                    Descubre nuestras más recientes creaciones diseñadas para sorprender tu paladar. 
+                    Innovación, sabor y calidad en cada producto que se suma a nuestra colección. 
+                    ¡No te quedes sin probarlos!
+                </h3>
                 <FeatureList
                     items={newProducts.map((newProduct) => ({
                         ...newProduct,
@@ -129,7 +150,7 @@ const FeaturesSection: React.FC = () => {
                 />
             </section>
 
-            {/* Modal para mostrar producto seleccionado */}
+            {/* Modal */}
             {selectedProduct && (
                 <ProductModal
                     isOpen={isModalOpen}

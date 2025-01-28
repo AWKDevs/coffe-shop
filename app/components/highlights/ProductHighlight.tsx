@@ -1,83 +1,104 @@
-import React from 'react';
-import { Button } from 'antd';
-import Image from 'next/image';
-import { PiShoppingCartSimpleFill } from 'react-icons/pi';
+import React from "react";
+import { Button } from "antd";
+import Image from "next/image";
+import { PiShoppingCartSimpleFill } from "react-icons/pi";
 
 interface ProductHighlightProps {
-    product: {
-        name: string;
-        image: string;
-        price: string;
-        details: string;
-        description: string;
-    };
-    isReverse?: boolean;
-    onClick?: () => void;
+  product: {
+    name: string;
+    image: string;
+    price: string;
+    details: string;
+    description: string;
+  };
+  isReverse?: boolean;
+  onClick?: () => void;
 }
 
-const ProductHighlight: React.FC<ProductHighlightProps> = ({ product, isReverse, onClick }) => {
-    return (
+const ProductHighlight: React.FC<ProductHighlightProps> = ({
+  product,
+  isReverse,
+  onClick,
+}) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: isReverse ? "row-reverse" : "row",
+        alignItems: "center",
+        gap: "20px",
+        marginBottom: "60px",
+        flexWrap: "wrap",
+        width: "100%",
+      }}
+    >
+      {/* Contenedor de Imagen y Botón */}
+      <div
+        style={{
+          flex: 1,
+          minWidth: "300px",
+          maxWidth: "600px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         <div
-            style={{
-                display: 'flex',
-                flexDirection: isReverse ? 'row-reverse' : 'row',
-                alignItems: 'center',
-                gap: '20px',
-                marginBottom: '60px',
-                cursor: 'pointer',
-            }}
-            onClick={onClick}
+          style={{
+            position: "relative",
+            width: "440px",
+            height: "264px",
+            borderRadius: "15px",
+            overflow: "hidden",
+          }}
         >
-            <div
-                style={{
-                    flex: 1,
-                    position: 'relative',
-                    width: '100%',
-                    maxWidth: '600px',
-                    borderRadius: '15px',
-                    overflow: 'hidden',
-                }}
-            >
-                <Image
-                    src={product.image}
-                    alt={product.name}
-                    width={600}
-                    height={400}
-                    style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: 'cover',
-                        borderRadius: '15px',
-                    }}
-                />
-                <Button
-                    type="primary"
-                    size="large"
-                    style={{
-                        backgroundColor: '#433409',
-                        color: '#fff',
-                        fontFamily: 'Judson, serif',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        border: 'none',
-                        width: '30%',
-                        justifyContent: 'center',
-                        marginTop: '10px',
-                        borderRadius: '20px',
-                    }}
-                >
-                    <PiShoppingCartSimpleFill size={20} style={{ color: '#FFE4AA' }} />
-                    {product.price}
-                </Button>
-            </div>
-            <div style={{ flex: 2, fontFamily: 'Judson, serif', color: '#7C593C' }}>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{product.name}</h3>
-                <p>{product.details}</p>
-                <p>{product.description}</p>
-            </div>
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            sizes="(max-width: 768px) 100vw, 440px"
+            style={{
+              objectFit: "cover",
+            }}
+          />
         </div>
-    );
+
+        <Button
+          type="primary"
+          size="large"
+          className="feature-button" // Nueva clase
+          style={{
+            backgroundColor: "#433409",
+            border: "none",
+            borderRadius: "20px",
+            marginTop: "10px",
+            width: "150px",
+          }}
+          onClick={onClick}
+        >
+          <PiShoppingCartSimpleFill size={20} style={{ color: "#FFE4AA" }} />
+          {product.price}
+        </Button>
+      </div>
+
+      {/* Contenedor de Descripción */}
+      <div
+        style={{
+          flex: 1,
+          minWidth: "300px",
+          maxWidth: "600px",
+          padding: "0 20px",
+          textAlign: isReverse ? "right" : "left",
+        }}
+      >
+        <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "15px" }}>
+          {product.name}
+        </h3>
+        <p style={{ marginBottom: "10px" }}>{product.details}</p>
+        <p>{product.description}</p>
+      </div>
+    </div>
+  );
 };
 
 export default ProductHighlight;
