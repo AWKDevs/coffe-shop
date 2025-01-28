@@ -10,6 +10,7 @@ interface FeatureListProps {
         isPromo?: boolean;
         isNew?: boolean;
         originalPrice?: string;
+        onClick?: () => void;
     }>;
 }
 
@@ -19,7 +20,7 @@ const FeatureList: React.FC<FeatureListProps> = ({ items }) => {
             style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                gap: '5px',
+                gap: '16px',
             }}
         >
             {items.map((item) => (
@@ -31,6 +32,7 @@ const FeatureList: React.FC<FeatureListProps> = ({ items }) => {
                     isPromo={item.isPromo}
                     isNew={item.isNew}
                     originalPrice={item.originalPrice}
+                    onClick={item.onClick}
                 />
             ))}
         </div>
