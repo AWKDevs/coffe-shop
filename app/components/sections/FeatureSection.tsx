@@ -6,12 +6,26 @@ import ProductHighlight from '../highlights/ProductHighlight';
 import { products, promotions, newProducts } from '../../constants/productData';
 import ProductModal from '../modals/ProductModal';
 
+export interface Product {
+    id: number;
+    name: string;
+    image: string;
+    details: string;
+    description: string;
+    price?: string | number;
+    discountedPrice?: string | number;
+    originalPrice?: string | number;
+    isPromo?: boolean;
+    isNew?: boolean;
+  }
+
 const FeaturesSection: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedProduct, setSelectedProduct] = useState(null);
-    const openModal = (product: any) => {
-        setSelectedProduct(product);
-        setIsModalOpen(true);
+    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+    const openModal = (product: Product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
     };
 
     const closeModal = () => {
@@ -150,13 +164,17 @@ const FeaturesSection: React.FC = () => {
                 />
             </section>
 
-            {/* Modal */}
             {selectedProduct && (
-                <ProductModal
-                    isOpen={isModalOpen}
-                    product={selectedProduct}
-                    onClose={closeModal}
-                />
+            <ProductModal
+                isOpen={isModalOpen}
+                product={{
+                ...selectedProduct,
+                // Asegurar valores por defecto para propiedades opcionales
+                details: selectedProduct.details || 'Detalles no disponibles',
+                description: selectedProduct.description || 'Descripción no disponible'
+                }}
+                onClose={closeModal}
+            />
             )}
         </div>
     );

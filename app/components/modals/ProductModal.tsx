@@ -2,22 +2,18 @@ import React from 'react';
 import { Modal, Button } from 'antd';
 import Image from 'next/image';
 import { PiShoppingCartSimpleFill } from 'react-icons/pi';
+import { Product } from '../sections/FeatureSection';
 
 interface ProductModalProps {
     isOpen: boolean;
-    product: {
-        name: string;
-        image: string;
-        price: string;
-        discountedPrice: string;
-        details: string;
-        description: string;
-    } | null;
+    product: Product | null;
     onClose: () => void;
 }
 
 const ProductModal: React.FC<ProductModalProps> = ({ isOpen, product, onClose }) => {
     if (!product) return null;
+
+    const displayPrice = product.discountedPrice || product.price;
 
     return (
         <Modal
@@ -36,8 +32,6 @@ const ProductModal: React.FC<ProductModalProps> = ({ isOpen, product, onClose })
                 color: '#7C593C',
             }}
         >
-            
-            {/* Imagen del producto */}
             <Image
                 src={product.image}
                 alt={product.name}
@@ -52,7 +46,6 @@ const ProductModal: React.FC<ProductModalProps> = ({ isOpen, product, onClose })
                 }}
             />
 
-            {/* Detalles del producto */}
             <p>{product.details}</p>
             <p>{product.description}</p>
             <Button
@@ -73,7 +66,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ isOpen, product, onClose })
                 }}
             >
                 <PiShoppingCartSimpleFill size={20} style={{ color: '#FFE4AA' }} />
-                {product.discountedPrice ||product.price}
+                {displayPrice}
             </Button>
         </Modal>
     );
