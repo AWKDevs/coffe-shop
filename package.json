@@ -9,11 +9,11 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@ant-design/cssinjs": "1.15.0-alpha.3",
-        "antd": "^5.16.0",
+        "@ant-design/v5-patch-for-react-19": "^1.0.3",
+        "antd": "^5.23.2",
         "next": "15.1.5",
-        "react": "18.2.0",
-        "react-dom": "18.2.0",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
         "react-icons": "^5.4.0"
     },
     "devDependencies": {
