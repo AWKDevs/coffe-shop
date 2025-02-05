@@ -5,11 +5,13 @@ import FeatureList from '../lists/FeatureList';
 import ProductHighlight from '../highlights/ProductHighlight';
 import { products, promotions, newProducts } from '../../constants/productData';
 import ProductModal from '../modals/ProductModal';
+import { Product } from '../../constants/Product';
+
 
 const FeaturesSection: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedProduct, setSelectedProduct] = useState(null);
-    const openModal = (product: any) => {
+    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+    const openModal = (product: Product) => {
         setSelectedProduct(product);
         setIsModalOpen(true);
     };

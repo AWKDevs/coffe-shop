@@ -8,10 +8,10 @@ interface ProductModalProps {
     product: {
         name: string;
         image: string;
-        price: string;
-        discountedPrice: string;
-        details: string;
-        description: string;
+        price?: string;
+        discountedPrice?: string;
+        details?: string;
+        description?: string;
     } | null;
     onClose: () => void;
 }
