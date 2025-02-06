@@ -6,11 +6,9 @@ import FeaturesSection from './components/sections/FeatureSection';
 export default function LandingPage() {
     return (
         <div>
-            {/* Aquí va el Hero */}
             <Hero />
             <FeaturesSection />
             <AboutUs/>
-            {/* Aquí va la sección Sobre Nosotros y el Footer */}
         </div>
     );
 }
