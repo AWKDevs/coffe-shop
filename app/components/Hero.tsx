@@ -13,7 +13,7 @@ const Hero = () => {
                 className="shadow-lg"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-20">
-                <h1 className="text-white text-[64px] font-bold">AWK DEVS PRUEBA CI/CD</h1>
+                <h1 className="text-white text-[64px] font-bold">Dulces Recuerdos Café</h1>
                 <span className="text-[32px] italic mt-2">10 años creando momentos mágicos.</span>
             </div>
         </div>
