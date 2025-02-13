@@ -1,3 +1,4 @@
+import '@ant-design/v5-patch-for-react-19';
 import React from 'react';
 import { Modal, Button } from 'antd';
 import Image from 'next/image';
@@ -36,8 +37,6 @@ const ProductModal: React.FC<ProductModalProps> = ({ isOpen, product, onClose })
                 color: '#7C593C',
             }}
         >
-            
-            {/* Imagen del producto */}
             <Image
                 src={product.image}
                 alt={product.name}
@@ -52,7 +51,6 @@ const ProductModal: React.FC<ProductModalProps> = ({ isOpen, product, onClose })
                 }}
             />
 
-            {/* Detalles del producto */}
             <p>{product.details}</p>
             <p>{product.description}</p>
             <Button

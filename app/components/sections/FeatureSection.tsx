@@ -1,5 +1,6 @@
 "use client";
 
+import '@ant-design/v5-patch-for-react-19';
 import React, { useState } from 'react';
 import FeatureList from '../lists/FeatureList';
 import ProductHighlight from '../highlights/ProductHighlight';
@@ -150,7 +151,6 @@ const FeaturesSection: React.FC = () => {
                 />
             </section>
 
-            {/* Modal */}
             {selectedProduct && (
                 <ProductModal
                     isOpen={isModalOpen}
