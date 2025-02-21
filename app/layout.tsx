@@ -1,7 +1,7 @@
 // app/layout.tsx
 import './styles/globals.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/common/Header';
+import Footer from './components/common/Footer';
 
 export default function RootLayout({
     children,
@@ -12,7 +12,7 @@ export default function RootLayout({
         <html lang="es">
             <body>
                 <Header />
-                {children}
+                <main>{children}</main>
                 <Footer />
             </body>
         </html>

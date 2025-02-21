@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { Modal, Button } from 'antd';
 import Image from 'next/image';
@@ -36,7 +38,6 @@ const ProductModal: React.FC<ProductModalProps> = ({ isOpen, product, onClose })
                 color: '#7C593C',
             }}
         >
-            
             {/* Imagen del producto */}
             <Image
                 src={product.image}
@@ -73,7 +74,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ isOpen, product, onClose })
                 }}
             >
                 <PiShoppingCartSimpleFill size={20} style={{ color: '#FFE4AA' }} />
-                {product.discountedPrice ||product.price}
+                {product.discountedPrice || product.price}
             </Button>
         </Modal>
     );

@@ -1,5 +1,5 @@
 import React from "react";
-import ResponsiveNav from "./NavBar/ResponsiveNav";
+import ResponsiveNav from "./ResponsiveNav";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

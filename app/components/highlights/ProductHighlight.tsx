@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "antd";
 import Image from "next/image";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
+import Button from "../../components/ui/Button";
 
 interface ProductHighlightProps {
   product: {
@@ -63,22 +63,12 @@ const ProductHighlight: React.FC<ProductHighlightProps> = ({
           />
         </div>
 
-        <Button
-          type="primary"
-          size="large"
-          className="feature-button" // Nueva clase
-          style={{
-            backgroundColor: "#433409",
-            border: "none",
-            borderRadius: "20px",
-            marginTop: "10px",
-            width: "150px",
-          }}
-          onClick={onClick}
-        >
-          <PiShoppingCartSimpleFill size={20} style={{ color: "#FFE4AA" }} />
-          {product.price}
-        </Button>
+        <Button 
+          onClick={onClick} 
+          icon={<PiShoppingCartSimpleFill size={20} style={{ color: "#FFE4AA" }} />} 
+          text={product.price}
+          className="mt-2 w-[40%]"
+        />
       </div>
 
       {/* Contenedor de Descripción */}

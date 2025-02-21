@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { SiCoffeescript } from 'react-icons/si';
 import { BiSolidCart } from 'react-icons/bi';
-import ResponsiveNavClient from './ResponsiveNavClient';
-import { HeaderButtonBronwBorder, HeaderIconButton } from '../HeaderButtons';
+import ResponsiveNavClient from '../NavBar/ResponsiveNavClient';
+import { HeaderButtonBronwBorder, HeaderIconButton } from '../ui/HeaderButtons';
 
 const ResponsiveNav = () => {
   const logo = (
