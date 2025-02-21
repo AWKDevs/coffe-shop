@@ -1,18 +1,31 @@
+// components/ResponsiveNav.tsx
 import Link from 'next/link';
 import { SiCoffeescript } from 'react-icons/si';
 import { BiSolidCart } from 'react-icons/bi';
 import ResponsiveNavClient from '../NavBar/ResponsiveNavClient';
 import { HeaderButtonBronwBorder, HeaderIconButton } from '../ui/HeaderButtons';
 
-const ResponsiveNav = () => {
+export interface NavItem {
+  href: string;
+  label: string;
+  icon?: React.ReactNode;
+  mobile?: boolean;
+}
+
+export interface ResponsiveNavProps {
+  logoText?: string;
+}
+
+const ResponsiveNav: React.FC<ResponsiveNavProps> = ({ logoText = "Coffee Shop" }) => {
   const logo = (
     <div className="flex items-center">
       <Link href="/" className="flex items-center space-x-2">
         <SiCoffeescript className="h-6 w-6" />
-        <span className="font-bold text-xl">Coffee Shop</span>
+        <span className="font-bold text-xl">{logoText}</span>
       </Link>
     </div>
   );
+
   const menuDesktop = (
     <>
       <HeaderIconButton href="/cart" icon={<BiSolidCart />} color="249,217,120" />
@@ -24,9 +37,10 @@ const ResponsiveNav = () => {
       <HeaderButtonBronwBorder href="/contact" insideText="CONTÁCTANOS" />
     </>
   );
+
   const menuMobile = (
     <>
-      <HeaderButtonBronwBorder href="/cart" icon={<BiSolidCart />} insideText='Carrito' color="249,217,120" mobile />
+      <HeaderButtonBronwBorder href="/cart" icon={<BiSolidCart />} insideText="Carrito" color="249,217,120" mobile />
       <HeaderButtonBronwBorder href="/menu" insideText="MENÚ" mobile />
       <HeaderButtonBronwBorder href="/recommendations" insideText="RECOMENDACIONES" mobile />
       <HeaderButtonBronwBorder href="/promotions" insideText="PROMOCIONES" mobile />

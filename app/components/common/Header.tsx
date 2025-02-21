@@ -1,11 +1,6 @@
 import React from "react";
 import ResponsiveNav from "./ResponsiveNav";
-import { Metadata } from "next";
 
-export const metadata: Metadata = {
-    title: 'Coffee Shop',
-    description: 'Dulces Recuerdos Café - 10 años creando momentos mágicos.'
-}
 
 const Header = () => {
   return (
